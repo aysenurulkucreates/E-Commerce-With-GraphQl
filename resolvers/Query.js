@@ -2,7 +2,19 @@ const { categories, products } = require("../db");
 
 exports.Query = {
   hello: () => "World",
-  products: (parent, args, { products }) => products,
+  products: (parent, { filter }, { products }) => {
+    let filteredProducts = products;
+
+    if (filter) {
+      if (filter.onSale === true) {
+        filteredProducts = filteredProducts.filter((product) => {
+          return product.onSale;
+        });
+      }
+    }
+
+    return filteredProducts;
+  },
   product: (parent, { id }, { products }) => {
     return products.find((product) => product.id === id);
   },

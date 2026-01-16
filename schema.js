@@ -3,7 +3,10 @@ const { gql } = require("graphql-tag");
 exports.typeDefs = gql`
   type Query {
     hello: String
-    products: [Product!]!
+    products(filter: ProductsFilterInput): [Product!]!
+    product(id: ID!): Product
+    categories: [Category!]!
+    category(id: ID!): Category
   }
 
   type Product {
@@ -16,18 +19,11 @@ exports.typeDefs = gql`
     category: Category
     reviews: [Review!]!
   }
+
   type Category {
     id: ID!
     name: String!
     products: [Product!]! # <-- İLİŞKİ 2: Kategorinin ürünleri neler?
-  }
-
-  type Query {
-    hello: String
-    products: [Product!]!
-    product(id: ID!): Product
-    categories: [Category!]!
-    category(id: ID!): Category
   }
 
   type Review {
@@ -36,5 +32,9 @@ exports.typeDefs = gql`
     date: String!
     comment: String!
     rating: Int!
+  }
+
+  input ProductsFilterInput {
+    onSale: Boolean
   }
 `;
