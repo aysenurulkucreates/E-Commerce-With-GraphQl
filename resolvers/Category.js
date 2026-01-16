@@ -4,6 +4,6 @@ const { products } = require("../db");
 exports.Category = {
   products: ({ id: categoryId }, args, { products }) => {
     // parent = O anki Kategori
-    return products.filter((product) => product.categoryId === parent.id);
+    return products.filter((product) => product.categoryId === id);
   },
 };
