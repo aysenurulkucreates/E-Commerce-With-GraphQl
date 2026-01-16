@@ -4,14 +4,14 @@ const { gql } = require("graphql-tag");
 
 const typeDefs = gql`
   type Query {
-    hello: String
+    hello: [String!]
   }
 `;
 
 const resolvers = {
   Query: {
     hello: () => {
-      return "World";
+      return ["Hello", "my", "Friend"];
     },
   },
 };
