@@ -32,7 +32,6 @@ exports.Mutation = {
 
     return newProduct;
   },
-
   addReview: (parent, { input }, { db }) => {
     const { title, date, comment, rating, productId } = input;
 
@@ -59,6 +58,15 @@ exports.Mutation = {
         };
       else return product; // return yazmazsan eski ürünler dönmez, silinir.
     });
+    return true;
+  },
+  deleteProduct: (parent, { id }, { db }) => {
+    db.products = db.products.filter((product) => product.id !== id);
+    db.reviews = db.reviews.filter((review) => review.productId !== id);
+    return true;
+  },
+  deleteReview: (parent, { id }, { db }) => {
+    db.reviews = db.reviews.filter((review) => review.id !== id);
     return true;
   },
 };
