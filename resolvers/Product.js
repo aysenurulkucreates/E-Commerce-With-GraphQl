@@ -1,12 +1,11 @@
-const { categories, reviews } = require("../db");
-
-// Ürünün içindeki Kategori bilgisini çözer (Many-to-One)
 exports.Product = {
-  category: ({ categoryId }, args, { categories }) => {
-    // parent = O anki Ürün
-    return categories.find((category) => category.id === categoryId);
+  // Üründen -> Kategoriye gitme (Tekil olduğu için .find)
+  category: ({ categoryId }, args, { db }) => {
+    return db.categories.find((category) => category.id === categoryId);
   },
-  reviews: ({ id }, args, { reviews }) => {
-    return reviews.filter((review) => review.productId === id);
+
+  // Üründen -> Yorumlara gitme (Çoğul olduğu için .filter)
+  reviews: ({ id }, args, { db }) => {
+    return db.reviews.filter((review) => review.productId === id);
   },
 };

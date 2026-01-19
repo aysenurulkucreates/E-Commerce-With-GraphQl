@@ -28,7 +28,7 @@ Yani GraphQL; POST, PUT ve DELETE'i tek bir çatı altında toplar.
   crypto.randomUUID() bu kullanılacak. Bu yapı veriye kimlik oluşturur ve benzersiz id yaratır, hangiisne verirsen.
 
 - Garphql anayasası (parent, args, context) bu yapılar mutlaka olur.
-- parent Üst veri (Genelde boş) GraphQL Zinciri
+- parent Üst veri (Genelde boş) GraphQL Zinciri, her zaman boş değildir bununsakın atlama.
   2 { input } Gelen Veri (Kullanıcı yolladı) Schema'daki (typeDefs) tanım
   3 { categories } Veritabanı (Depo) index.js'teki context ayarı
 
@@ -42,4 +42,8 @@ Yani GraphQL; POST, PUT ve DELETE'i tek bir çatı altında toplar.
   comment,
   rating,
   productId,
-  }; ban böyle
+  }; ban böyle.
+  - Delete işlemlerinde geri dönüş değeri: Silinen veri artık yok olduğu için geri döndürülemez. Genelde işlemin başarılı olduğunu teyit etmek için Boolean (True) veya silinenin hangisi olduğunu teyit etmek için sadece ID döndürülür.
+
+- args (parent, args) Paketi al, içeri taşı, sonra aç. (args.filter)
+  { filter } (parent, { filter }) Paketi kapıda aç, sadece içindeki ürünü al. (filter)

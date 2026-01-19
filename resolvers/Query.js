@@ -1,9 +1,8 @@
 exports.Query = {
   hello: () => "World",
-
-  // DÜZELTME 1: Çantaya 'reviews' eklendi (Çünkü aşağıda puan hesabı yapacağız)
-  products: (parent, { filter }, { products, reviews }) => {
-    let filteredProducts = products;
+  products: (parent, { filter }, { db }) => {
+    let filteredProducts = db.products;
+    console.log(filteredProducts);
 
     if (filter) {
       const { onSale, avgRating } = filter;
@@ -20,7 +19,7 @@ exports.Query = {
           let numberOfReviews = 0;
 
           // Bu ürüne ait yorumları bul ve puanlarını topla
-          reviews.forEach((review) => {
+          db.reviews.forEach((review) => {
             if (review.productId === product.id) {
               sumRating += review.rating;
               numberOfReviews++;
@@ -39,13 +38,13 @@ exports.Query = {
     return filteredProducts;
   },
 
-  product: (parent, { id }, { products }) => {
-    return products.find((product) => product.id === id);
+  product: (parent, { id }, { db }) => {
+    return db.products.find((product) => product.id === id);
   },
 
-  categories: (parent, args, { categories }) => categories,
+  categories: (parent, args, { db }) => db.categories,
 
-  category: (parent, { id }, { categories }) => {
-    return categories.find((category) => category.id === id);
+  category: (parent, { id }, { db }) => {
+    return db.categories.find((category) => category.id === id);
   },
 };

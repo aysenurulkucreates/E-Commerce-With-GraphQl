@@ -7,7 +7,7 @@ const products = [
     price: 42.44,
     image: "img-1",
     onSale: false,
-    categoryId: "c01b1ff4-f894-4ef2-b27a-22aacc2f3c00",
+    categoryId: "c01b1ff4-f894-4ef2-b27a-22aacc2fca70",
   },
   {
     id: "c2af9adc-d0b8-4d44-871f-cef66f86f7f6",
@@ -17,7 +17,7 @@ const products = [
     price: 53.5,
     image: "img-2",
     onSale: false,
-    categoryId: "c01b1ff4-f894-4ef2-b27a-22aacc2f3c00",
+    categoryId: "c01b1ff4-f894-4ef2-b27a-22aacc2fca70",
   },
   {
     id: "2c931e7e-510f-49e5-aed6-d6b44087e5a1",
@@ -27,7 +27,7 @@ const products = [
     price: 1.33,
     image: "img-3",
     onSale: true,
-    categoryId: "c01b1ff4-f894-4ef2-b27a-22aacc2f3c00",
+    categoryId: "c01b1ff4-f894-4ef2-b27a-22aacc2fca70",
   },
   {
     id: "404daf2a-9b97-4b99-b9af-614d07f818d7",
@@ -37,7 +37,7 @@ const products = [
     price: 332,
     image: "img-4",
     onSale: false,
-    categoryId: "c01b1ff4-f894-4ef2-b27a-22aacc2f3c00",
+    categoryId: "c01b1ff4-f894-4ef2-b27a-22aacc2fca70",
   },
   {
     id: "6379c436-9fad-4b3f-a427-2d7241f5c1b1",
@@ -284,7 +284,7 @@ const reviews = [
   },
 ];
 
-module.exports = {
+exports.db = {
   products,
   categories,
   reviews,

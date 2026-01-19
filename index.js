@@ -5,7 +5,7 @@ const { Query } = require("./resolvers/Query");
 const { Mutation } = require("./resolvers/Mutation");
 const { Category } = require("./resolvers/Category");
 const { Product } = require("./resolvers/Product");
-const { categories, products, reviews } = require("./db");
+const { db } = require("./db");
 
 const server = new ApolloServer({
   typeDefs,
@@ -19,9 +19,7 @@ const server = new ApolloServer({
 
 startStandaloneServer(server, {
   context: async () => ({
-    categories,
-    products,
-    reviews,
+    db,
   }),
 }).then(({ url }) => {
   console.log(`🚀  Server ready at: ${url}`);
