@@ -31,3 +31,15 @@ Yani GraphQL; POST, PUT ve DELETE'i tek bir çatı altında toplar.
 - parent Üst veri (Genelde boş) GraphQL Zinciri
   2 { input } Gelen Veri (Kullanıcı yolladı) Schema'daki (typeDefs) tanım
   3 { categories } Veritabanı (Depo) index.js'teki context ayarı
+
+- Mutations denilen şey de get, put, delete vs hepsini kapsar, sen schem aiçine ne yapmak istediğini, neyi kapsamasını istediğini yazıyorsun ve direkt kullanıyorsun.
+- İlk oluşturduğun const verisinde id vermezsin çünkü o frontend tarafından gelen, sen ancak kullanıcı seçtiğinde ürünü id verebilirsin. örne üzrinden gösterim, const { title, date, comment, rating, productId } = input;
+
+  const newReview = {
+  id: crypto.randomUUID(),
+  title,
+  date,
+  comment,
+  rating,
+  productId,
+  }; ban böyle
