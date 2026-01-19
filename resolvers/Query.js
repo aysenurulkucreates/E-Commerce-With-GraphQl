@@ -2,7 +2,6 @@ exports.Query = {
   hello: () => "World",
   products: (parent, { filter }, { db }) => {
     let filteredProducts = db.products;
-    console.log(filteredProducts);
 
     if (filter) {
       const { onSale, avgRating } = filter;

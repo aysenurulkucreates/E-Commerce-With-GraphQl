@@ -47,3 +47,7 @@ Yani GraphQL; POST, PUT ve DELETE'i tek bir çatı altında toplar.
 
 - args (parent, args) Paketi al, içeri taşı, sonra aç. (args.filter)
   { filter } (parent, { filter }) Paketi kapıda aç, sadece içindeki ürünü al. (filter)
+
+- Ürün -> Yorum Ürün Gitti Yorum Ölür 💀 SİL (Delete / Filter)
+  Kategori -> Ürün Kategori Gitti Ürün Yaşar 🏃‍♀️ GÜNCELLE (Set Null)
+  Sepet Kullanıcı Gitti Sepet Ölür 💀 SİL (Delete / Filter)
